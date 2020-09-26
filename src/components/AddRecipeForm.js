@@ -9,7 +9,9 @@ const AddRecipeForm = (props) => {
 
     let history = useHistory();
     const userId = localStorage.getItem('userId')
-
+    const backToList = () =>{
+        history.push("/recipe-list")
+    }
     const defaultformState = {
         title: '',
         source: '',
@@ -53,22 +55,22 @@ const AddRecipeForm = (props) => {
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="title" id="titleLabel">
                         Recipe Title:
-                <input type="text" placeholder="i.e. Granny's Famous Cookies" size="100" name="title" id="title" value={formData.title} onChange={handleChange} />
+                <input type="text" placeholder="i.e. Granny's Famous Cookies"  name="title" id="title" value={formData.title} onChange={handleChange} />
                     </label>
                     <br/>
                     <label htmlFor="source" id="sourceLabel">
                         Source of Recipe:
-                <input type="text" placeholder="Who created this masterpiece?" id="source" name="source" size="100" value={formData.source} onChange={handleChange} />
+                <input type="text" placeholder="Who created this masterpiece?" id="source" name="source"  value={formData.source} onChange={handleChange} />
                     </label>
                     <br/>
                     <label htmlFor="category" id="catLabel">
                         Category:
-                <input type="text" id="category" name="category" placeholder="Breakfast, Lunch, Dinner, Snack" size="100" value={formData.category} onChange={handleChange} />
+                <input type="text" id="category" name="category" placeholder="Breakfast, Lunch, Dinner, Snack" value={formData.category} onChange={handleChange} />
                     </label>
                     <br/>
                     <label htmlFor="ingredients" id="ingredientsLabel">
                         Ingredients:
-                <input type="text" id="ingredients" name="ingredients" placeholder="1 cup butter, 2/3 cup of chocolate chips, etc" size="100" value={formData.ingredients} onChange={handleChange} />
+                <input type="text" id="ingredients" name="ingredients" placeholder="1 cup butter, 2/3 cup of chocolate chips, etc"  value={formData.ingredients} onChange={handleChange} />
                     </label>
                     <br/>
                     <label htmlFor="instructions" id="instructionsLabel">
@@ -77,8 +79,9 @@ const AddRecipeForm = (props) => {
                    </label>
                     <br/>
                     <div className="buttonDivs">
-                        <button> Add Recipe</button>
-                        <Link to="/recipe-list" className="Link">Back to Recipes</Link>
+                       <button onClick={backToList}>Back to Recipes</button> 
+                       <button> Add Recipe</button>
+                        
                     </div>
                 </form>
             </div>
@@ -102,7 +105,7 @@ const RecipeContainer = styled.div`
       font-size:3rem;
       font-weight:lighter;
       color:#4a3f35;
-      opacity:0.8;
+      opacity:0.9;
       padding-top:6%;
 
       span{
@@ -113,13 +116,7 @@ const RecipeContainer = styled.div`
       }
     }
     #stickynote{
-        background-color:#fbfbfb;
-        margin:0 auto;
-        opacity:0.9;
-        border-radius:5px;
-        padding:2%;
-        width:80%;
-        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        
         h2{
             
             font-size:4rem;
@@ -128,12 +125,14 @@ const RecipeContainer = styled.div`
             margin-top:0%;
         }
         form{
-            display:flex;
-            flex-direction:column;
-            justify-content:flex-start;
-            align-items:flex-start;
-            width:100%;
-            box-sizing:border-box
+            background-color:#fbfbfb;
+            margin:0 auto;
+            opacity:0.9;
+            border-radius:5px;
+            padding:2%;
+            width:80%;
+            text-align:left;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
             button{
             font-size: 1rem;
             }
@@ -145,45 +144,36 @@ const RecipeContainer = styled.div`
                 font-size:1rem;
              }
              input{
+                margin-left: 12px;
+                margin-right:12px;
                 border:1px inset #4a3f35;
-                border-radius:5px;
-                width:100%;
+                border-radius:3px;
                 font-family:inherit;
+                width: calc(100% - 24px);
              }
-             #instructions{
-                 width: calc(100% - 24px);
-                 display:block;
-                 margin: 12px;
-                 overflow:hidden;
-                 resize:both;
-                 font-family:inherit;
-                 border:1px inset #4a3f35;
-                 border-radius:5px;
+             textarea{
+                margin-left: 12px;
+                font-family:inherit;
+                margin-right:12px;
+                border-radius:3px;
+                border:1px inset #4a3f35;
+                width: calc(100% - 24px);
             }
         }
         .buttonDivs{
             display:flex;
             justify-content:space-between;
-            width:95%;
             button{
-                background-color: #fa7d09;
-                border-radius:5px;
-                color:#fbfbfb;
-                padding:1%;
-                border:0px;
-                margin-right:2%;
+                background-color:orange;
+                border-radius:3px;
+                color:#4a3f35;
+                border:1px inset #4a3f35;
+                :hover{
+                    background-color:#56b04c;
+                    color:white;
+                }
             }
-            .Link{
-                background-color: #fa7d09;
-                border-radius:5px;
-                color:#fbfbfb;
-                padding:1%;
-                border:0px;
-                font-family:inherit;
-                font-size:.8rem;
-                font-weight:bolder;
-                text-decoration:none;
-            } 
+            
         }
         }  
     }

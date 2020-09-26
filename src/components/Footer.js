@@ -11,8 +11,8 @@ function Footer () {
                 <Link to="/">Login</Link>
                 <Link to="/recipe-list">Current Recipes</Link>
                 <Link to="/add-recipe">Add A Recipe</Link>
-                <a href="https://htmlpreview.github.io/?https://github.com/BW-Secret-Family-Recipes-pt/Marketing-Page/blob/marketing/aboutblog/about.html" alt="About">About</a>
-                <a href="https://htmlpreview.github.io/?https://github.com/BW-Secret-Family-Recipes-pt/Marketing-Page/blob/marketing/aboutblog/blog.html" alt="Check out our blog!">Blog</a>
+                <a href="https://marketing-page-plum.vercel.app/about.html" alt="About">About</a>
+                <a href="https://marketing-page-plum.vercel.app/blog.html" alt="Check out our blog!">Blog</a>
             </div>
             <br/>
             <br />

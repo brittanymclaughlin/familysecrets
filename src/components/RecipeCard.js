@@ -55,10 +55,11 @@ const RecipeCard = ({
     
     return(
         <RecipeDiv style={{backgroundImage:"url(" + image + ")"}}>
-            <StyledForm className="recipeCardForm">
-                <div>
+            <h2 id="RecipeAdd"><span>Edit {formInfo.title}</span></h2> 
+            <form className="recipeCardForm">
                 <label htmlFor="title">
-                    <StyledTextInput
+                    Recipe Name:
+                    <input
                         type="text"
                         name="title"
                         id="title"
@@ -67,8 +68,10 @@ const RecipeCard = ({
                         onChange={handleChanges}
                     />
                 </label>
+                <br/>
                 <label htmlFor="source">
-                    <StyledTextInput
+                    Source:
+                    <input
                         type="text"
                         name="source"
                         id="source"
@@ -77,10 +80,10 @@ const RecipeCard = ({
                         onChange={handleChanges}
                     />
                 </label>
-                </div>
-                <div>
+                <br/>
                 <label htmlFor="category">
-                    <StyledTextInput
+                    Category:
+                    <input
                         type="text"
                         name="category"
                         id="category"
@@ -89,8 +92,10 @@ const RecipeCard = ({
                         onChange={handleChanges}
                     />
                 </label>
+                <br/>
                 <label htmlFor="ingredients">
-                    <StyledTextInput
+                    Ingredients:
+                    <input
                         type="text"
                         name="ingredients"
                         id="ingredients"
@@ -99,9 +104,9 @@ const RecipeCard = ({
                         onChange={handleChanges}
                     />
                 </label>
-                </div>
-                <div>
+                <br/>
                 <label htmlFor="instructions">
+                    Instructions:
                     <textarea
                         rows="4"
                         name="instructions"
@@ -111,13 +116,13 @@ const RecipeCard = ({
                         onChange={handleChanges}
                     />
                 </label>
-                </div>
+               
                 <ButtonsWrapper>
-                    <button onClick={editRecipe}>Submit</button>
+                   <button onClick={backToList}>Back to Recipe List</button>
                     <button onClick={delRecipe}>Remove Recipe</button>
-                    <button onClick={backToList}>Back to Recipe List</button>
+                     <button onClick={editRecipe}>Submit</button>
                 </ButtonsWrapper>
-            </StyledForm>
+            </form>
          
             {
                 (isRemoved) ? <h4>Recipe Removed</h4> : null
@@ -151,26 +156,76 @@ const RecipeDiv = styled.div`
     background-position:0% 45%;
     background-size:cover;
     z-index:3;
-`
-const StyledForm = styled.form`
-background-color:#fbfbfb;
-margin:0 auto;
-opacity:0.9;
-border-radius:5px;
-padding:2%;
-width:80%;
-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-    textarea {
-        margin: 12px;
-        width: calc(100% - 24px);
+    display:flex;
+    flex-direction:column;
+
+    h2{
+        font-family: 'Kaushan Script', cursive;
+        font-size:3rem;
+        font-weight:lighter;
+        color:#4a3f35;
+        opacity:0.8;
+        padding-top:6%;
+  
+        span{
+          background-color:white;
+          padding:2%;
+          border-radius:50% 50% 50% 50% / 49% 49% 51% 51%  ;
+          box-shadow:0px 15px 15px 0 rgba(0, 0, 0, 0.5), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+      }
+
+    form{
+        background-color:#fbfbfb;
+        margin:0 auto;
+        opacity:0.9;
+        border-radius:5px;
+        padding:2%;
+        width:80%;
+        text-align:left;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+            textarea {
+                margin-left: 12px;
+                margin-right:12px;
+                width: calc(100% - 24px);
+                font-family:inherit;
+                border-radius:3px;
+                border:1px inset #4a3f35;
+
+            }
+            label{
+                display:flex;
+                width:auto;
+                flex-direction:column;
+                align-items:flex-start;
+                font-size:1rem;
+            input{
+                margin-left: 12px;
+                margin-right:12px;
+                border:1px inset #4a3f35;
+                border-radius:3px;
+                font-family:inherit;
+                width: calc(100% - 24px);
+            }
+        }
     }
 `
-const StyledTextInput = styled.input`
-    margin: 12px;
-    width: calc(50% - 24px);
-`
+
 
 const ButtonsWrapper = styled.div`
     display: flex;
+    margin-top:1%;
     justify-content: space-between;
+    button{
+
+    background-color:#fa7d09;
+    border-radius:3px;
+
+    border:1px inset #4a3f35;
+    :hover{
+        background-color:#56b04c;
+        color:white;
+    }
+    }
+
 `
