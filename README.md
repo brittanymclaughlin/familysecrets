@@ -33,7 +33,7 @@ Cookbook website.
 ## 🏁 Getting Started <a name = "getting_started"></a>
 To build this web application I used the following:
 <ul>
-<li>ReactJS</li>
+<li>ReactJS</li>cd 
 <li>Axios</li>
 <li>Redux-Thunk</li>
 <li>React Router</li>
